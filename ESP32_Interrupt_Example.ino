@@ -3,13 +3,13 @@
 int pin = 13;
 volatile int state = LOW;
 
-portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
+portMUX_TYPE synch = portMUX_INITIALIZER_UNLOCKED;
 
 void IRAM_ATTR blink()
 {
-  portENTER_CRITICAL(&mux);
+  portENTER_CRITICAL(&synch);
   state = !state;
-  portEXIT_CRITICAL(&mux);
+  portEXIT_CRITICAL(&synch);
 }
 
 void setup()
