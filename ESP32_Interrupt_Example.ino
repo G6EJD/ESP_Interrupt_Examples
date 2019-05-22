@@ -1,7 +1,7 @@
 // toggles LED when interrupt pin changes state
 
 int pin = 13;
-DRAM_ATTR int state = LOW;
+volatile int state = LOW;
 
 portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 
