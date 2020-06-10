@@ -53,7 +53,7 @@ void loop() {
 
 //#########################################################################################
 // Interrupt service routine
-void WSpeed_ISR (void) {
+ICACHE_RAM_ATTR void WSpeed_ISR (void) {
   if (!(millis() - Debounce_Timer) < 5) {
     Debounce_Timer = millis();                                        // Set debouncer to prevent false triggering
     Event_Counter++;
