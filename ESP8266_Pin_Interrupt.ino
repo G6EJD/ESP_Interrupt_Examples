@@ -20,7 +20,7 @@ void loop() {
   delay(1000);
 }
  
-void ISR () {                  // Interrupt Service Routine, come here when an interrupt occurs
+ICACHE_RAM_ATTR void ISR () {                  // Interrupt Service Routine, come here when an interrupt occurs
   digitalWrite(LED_pin, HIGH); // Interrupt occurred, so turn On LED
   interrupt_occurred = true;   // Record that an interrupt occurred
 }
