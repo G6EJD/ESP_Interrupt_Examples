@@ -15,7 +15,7 @@ void loop() {
   delay(100000);                                 // Do nothing, but the LED keeps flashing!
 }
 
-void ISR (void) {                                // Timer reached zero, now re-load it to repeat
+ICACHE_RAM_ATTR void ISR (void) {                                // Timer reached zero, now re-load it to repeat
   timer0_write(ESP.getCycleCount() + 80000000L); // Reset the timer, do this first for timing accuracy
   LED_state = !LED_state;                        // Toggle the current LED_state
   digitalWrite(LED_pin, LED_state);              // Flash the LED on or off
